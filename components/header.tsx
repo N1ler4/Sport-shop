@@ -22,7 +22,7 @@ export default function header() {
           </div>
           <ul className="text-white flex gap-3">
             <li className="text-[16px]">
-              <Link href={"#"}>Продукты</Link>
+              <Link href={"/products"}>Продукты</Link>
             </li>
             <li className="text-[16px]">
               <p>Контакты</p>
