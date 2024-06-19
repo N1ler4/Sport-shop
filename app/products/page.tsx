@@ -12,7 +12,7 @@ export default function page() {
     <main className="container mx-auto flex mt-[70px] mb-[70px]">
       <Aside />
       <section className="w-full">
-        <div className="flex mb-2 justify-between mx-auto w-[1050px] ml-2">
+        <div className="flex mb-2 justify-between mx-auto xl:w-[1050px] sm:w-[auto] ml-2 flex-wrap ">
           <div className="flex gap-2">
             <Select className="w-[150px]" defaultValue="Сортировать">
               <option value="">test-1</option>
@@ -39,7 +39,7 @@ export default function page() {
           ))}
         </div>
         <div className="w-full">
-          <button className="bg-white px-4 py-2 rounded-md w-[1050px] mt-2 ml-2">
+          <button className="bg-white px-4 py-2 rounded-md xl:w-[1050px] sm:w-auto mt-2 ml-2">
             Load more
           </button>
         </div>

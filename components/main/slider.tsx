@@ -21,21 +21,21 @@ export default function slider() {
     <div>
       {" "}
       <div className="flex justify-center gap-5 flex-wrap">
-        <div className="max-w-[800px] h-[500px]">
+        <div className="xl:max-w-[800px] xl:h-[500px] sm:max-w-[350px] sm:h-[200px] max-w-full h-auto">
           <Carousel arrows infinite={true} autoplay>
             {arr.map((e) => (
               <div key={e}>
                 <div
                   style={contentStyle}
-                  className="relative flex justify-between items-center px-2 text-[#1F1D14] "
+                  className="relative flex justify-between items-center p-2 text-[#1F1D14]"
                 >
-                  <div className="w-[300px] h-[300px] bg-[#d32f2f] z-[1] absolute rounded-full right-[60px]"></div>
-                  <div className="absolute w-[700px] h-[300px] bg-[#BDD400] z-[1] rotate-[115deg] bottom-0 right-[-300px]"></div>
-                  <div className="flex flex-col items-start text-start max-w-[350px] z-[999] ml-5">
-                    <h1 className="font-extrabold text-[28px]">
+                  <div className="w-[300px] h-[300px] bg-[#d32f2f] z-[1] absolute rounded-full sm:right-[20px] md:right-[40px] lg:right-[60px]"></div>
+                  <div className="absolute w-[700px] xl:block sm:hidden h-[300px] bg-[#BDD400] z-[1] rotate-[115deg] bottom-0 right-[-300px]"></div>
+                  <div className="flex flex-col items-start text-start xl:max-w-[350px] sm:max-w-[150px] z-[999] ml-5">
+                    <h1 className="font-extrabold text-[20px] sm:text-[24px] md:text-[28px]">
                       Бутсы Nike Phantom GT2 Elite FG
                     </h1>
-                    <button className="py-[10px] px-[15px] border-2 border-[#FBD029] rounded-lg">
+                    <button className="py-[5px] sm:py-[8px] md:py-[10px] px-[10px] sm:px-[12px] md:px-[15px] border-2 border-[#FBD029] rounded-lg">
                       Подробности
                     </button>
                   </div>
@@ -43,7 +43,7 @@ export default function slider() {
                     src={img1}
                     width={350}
                     height={350}
-                    className="bg-contain z-[999]"
+                    className="bg-contain z-[999] max-w-[150px] sm:max-w-[200px] md:max-w-[300px] lg:max-w-[350px]"
                     alt=""
                   />
                 </div>
@@ -51,6 +51,7 @@ export default function slider() {
             ))}
           </Carousel>
         </div>
+
         <div className="flex flex-col flex-wrap">
           <div className="w-[320px] h-[200px]">
             <Image src={img2} alt="123" />
