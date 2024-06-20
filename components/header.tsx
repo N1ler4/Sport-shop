@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import logo from "../assets/images/logo.svg";
 import Link from "next/link";
@@ -11,6 +12,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import Menu from "./ui/burger-menu";
+import { Login } from "./ui";
 
 export default function Header() {
   return (
@@ -83,9 +85,7 @@ export default function Header() {
             </label>
           </div>
           <div className="flex gap-2 sm:gap-4 items-center">
-            <button className="w-[40px] h-[40px] bg-[#F2F2F2] rounded-lg flex items-center justify-center">
-              <UserOutlined />
-            </button>
+            <Login/>
             <button className="w-[40px] h-[40px] bg-[#F2F2F2] rounded-lg flex items-center justify-center">
               <HeartOutlined />
             </button>

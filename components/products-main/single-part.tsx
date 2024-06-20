@@ -15,8 +15,8 @@ export default function SinglePart() {
     arr.push(i);
   }
   return (
-    <div className="flex justify-between">
-      <div className="max-w-[800px] h-[500px]">
+    <div className="flex justify-between flex-wrap sm:ml-[40px]">
+      <div className="xl:max-w-[800px] sm:max-w-[500px] sm:h-[200px] xl:h-[500px] sm:mb-[240px]">
         <Carousel arrows infinite={true} autoplay>
           {arr.map((e) => (
             <div key={e}>
@@ -24,7 +24,7 @@ export default function SinglePart() {
                 style={contentStyle}
                 className="relative flex justify-between items-center px-2 text-[#1F1D14] "
               >
-                <div className="grid justify-center items-center pl-[170px]">
+                <div className="grid justify-center items-center sm:pl-[80px] xl:pl-[170px]">
                   <Image
                     src={img}
                     width={350}
@@ -38,7 +38,7 @@ export default function SinglePart() {
           ))}
         </Carousel>
       </div>
-      <div className="w-[400px] h-[400px] gap-5 bg-white p-5">
+      <div className="w-[400px] h-[400px] gap-5 bg-white p-5 sm:mb-9">
         <h1 className="text-[32px] font-medium w-[310px]">
           Гантель виниловая, 2 х 3 кг
         </h1>
