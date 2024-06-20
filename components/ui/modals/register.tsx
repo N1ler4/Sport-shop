@@ -29,7 +29,7 @@ const App: React.FC = () => {
   return (
     <>
       <p className="cursor-pointer text-[#FBD029]" onClick={showModal}>
-        "Регистрация"
+        {"Регистрация"}
       </p>
       <Modal
         open={isModalOpen}
@@ -42,7 +42,7 @@ const App: React.FC = () => {
           <p className="w-[270px] text-[12px]">
             Если Вы Регистрированы, нажмите кнопку
             <button className="text-[#FBD029]" onClick={handleCancel}>
-              "Вход"!
+              {"Вход"}!
             </button>
           </p>
           <div className="flex gap-3">
