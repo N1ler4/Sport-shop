@@ -1,16 +1,24 @@
 "use client";
 import React, { useState } from "react";
-import { Input, Modal } from "antd";
+import { Input, Modal, Form, Button } from "antd";
 import "./style.css";
+import { Register } from "@/service/auth.service";
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const register = async (values: any) => {
+    const response = await Register(values);
+    if (response && response.status === 200) {
+      closeModal();
+    }
+  };
 
   const showModal = () => {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
+  const closeModal = () => {
     setIsModalOpen(false);
   };
 
@@ -25,54 +33,99 @@ const App: React.FC = () => {
       </p>
       <Modal
         open={isModalOpen}
-        onOk={handleOk}
         onCancel={handleCancel}
-        okButtonProps={{ className: "custom-ok-button" }}
-        okText="Register"
+        footer={null}
         className="p-[25px]"
       >
-        <div className="p-[25px] flex flex-col gap-3">
-          {" "}
+        <Form className="p-[25px] flex flex-col gap-3" onFinish={register}>
           <h1 className="text-[24px] font-medium">Вход в аккаунт</h1>
           <p className="w-[270px] text-[12px]">
-            Если Вы не зарегистрированы, нажмите кнопку{" "}
-            <button className="text-[#FBD029]" onClick={handleCancel}>"Вход"!</button>
+            Если Вы Регистрированы, нажмите кнопку
+            <button className="text-[#FBD029]" onClick={handleCancel}>
+              "Вход"!
+            </button>
           </p>
           <div className="flex gap-3">
-            <button className="w-[120px] h-[30px] bg-[#F2F2F2] rounded-lg">
+            <Button className="w-[120px] h-[30px] bg-[#F2F2F2] rounded-lg">
               Google
-            </button>
-            <button className="w-[120px] h-[30px] bg-[#F2F2F2] rounded-lg">
+            </Button>
+            <Button className="w-[120px] h-[30px] bg-[#F2F2F2] rounded-lg">
               Facebook
-            </button>
+            </Button>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <label htmlFor="input">
+          <div className="flex flex-wrap gap-x-1">
+            <div>
               <h1>Имя</h1>
-              <Input placeholder="Имя" className="w-[180px]" />
-            </label>
-            <label htmlFor="input">
+              <Form.Item
+                name="first_name"
+                rules={[
+                  { required: true, message: "Пожалуйста, введите ваше имя!" },
+                ]}
+              >
+                <Input placeholder="Имя" className="w-[180px]" />
+              </Form.Item>
+            </div>
+            <div>
               <h1>Фамилия</h1>
-              <Input placeholder="Фамилия" className="w-[180px]" />
-            </label>{" "}
-            <label htmlFor="input">
-              <h1>Номер телефона</h1>
-              <Input placeholder="Номер телефона" className="w-[180px]" />
-            </label>
+              <Form.Item
+                name="last_name"
+                rules={[
+                  {
+                    required: true,
+                    message: "Пожалуйста, введите вашу фамилию!",
+                  },
+                ]}
+              >
+                <Input placeholder="Фамилия" className="w-[180px]" />
+              </Form.Item>
+            </div>
+            <div>
+              <h1>Гендер</h1>
+              <Form.Item
+                name="gender"
+                rules={[
+                  {
+                    required: true,
+                    message: "Пожалуйста, введите ваш гендер!",
+                  },
+                ]}
+              >
+                <Input placeholder="Гендер" className="w-[180px]" />
+              </Form.Item>
+            </div>
           </div>
           <h1>
             Создайте свой постоянный логин и пароль для доступа к вашей учетной
             записи!
           </h1>
           <div className="flex gap-3">
-            <label htmlFor="input">
+            <Form.Item
+              name="email"
+              rules={[
+                { required: true, message: "Пожалуйста, введите ваш email!" },
+              ]}
+            >
               <Input placeholder="Login" className="w-[180px]" />
-            </label>{" "}
-            <label htmlFor="input">
-              <Input placeholder="Password" className="w-[180px]" />
-            </label>
+            </Form.Item>
+            <Form.Item
+              name="password"
+              rules={[
+                { required: true, message: "Пожалуйста, введите ваш пароль!" },
+              ]}
+            >
+              <Input.Password placeholder="Password" className="w-[180px]" />
+            </Form.Item>
           </div>
-        </div>
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="custom-ok-button"
+            >
+              Register
+            </Button>
+          </Form.Item>
+        </Form>
       </Modal>
     </>
   );
