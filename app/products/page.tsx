@@ -4,7 +4,7 @@ import Aside from "../../components/products-main/aside";
 import Card from "@/components/ui/card";
 import { useState } from "react";
 
-export default function page() {
+export default function Page() {
   const [loading, setLoading] = useState(false);
   const [cardsLoaded, setCardsLoaded] = useState(12); 
 
