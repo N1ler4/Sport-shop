@@ -4,12 +4,21 @@ import img6 from "../../assets/images/pngegg (34) 9.png";
 import img7 from "../../assets/images/pngegg (34) 10.png";
 import { HeartOutlined } from "@ant-design/icons";
 import Link from "next/link";
+import { getProduct } from "@/service/product.service";
+import { useEffect } from "react";
 
 export default function Cards() {
   const arr2 = [];
   for (let i = 0; i < 4; i++) {
     arr2.push(i);
   }
+  const getData = async () => {
+    const data = await getProduct(10, 1);
+    console.log(data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div>
@@ -26,7 +35,7 @@ export default function Cards() {
   );
 }
 
-function Section({ title, images, arr }:any) {
+function Section({ title, images, arr }: any) {
   return (
     <div>
       <div className="flex justify-between items-center mb-4 flex-wrap">
@@ -41,7 +50,7 @@ function Section({ title, images, arr }:any) {
         </div>
       </div>
       <div className="flex justify-around relative flex-wrap gap-4 md:gap-8">
-        {arr.map((e:any) => (
+        {arr.map((e: any) => (
           <div key={e} className="relative">
             <div className="w-[250px] h-[350px] bg-white flex flex-col items-center justify-between relative shadow-md">
               <div className="absolute right-[20px] top-[20px] cursor-pointer">
