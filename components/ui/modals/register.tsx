@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { Input, Modal, Form, Button } from "antd";
-import "./style.css";
 import { Register } from "@/service/auth.service";
+import "./style.css";
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

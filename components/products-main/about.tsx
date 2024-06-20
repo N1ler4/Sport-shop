@@ -3,7 +3,7 @@ import img from "../../assets/images/star.svg";
 
 export default function about() {
   return (
-    <div className="flex items-center justify-around">
+    <div className="flex items-center justify-around mb-[70px]">
       <div>
         <h1 className="xl:text-[24px] sm:text-[14px] font-semibold">
           Описание

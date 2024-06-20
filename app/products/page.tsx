@@ -1,12 +1,20 @@
+"use client"
 import { Select } from "antd";
 import Aside from "../../components/products-main/aside";
 import Card from "@/components/ui/card";
+import { useState } from "react";
 
 export default function page() {
-  const arr = [];
-  for (let i = 0; i < 16; i++) {
-    arr.push(i);
-  }
+  const [loading, setLoading] = useState(false);
+  const [cardsLoaded, setCardsLoaded] = useState(12); 
+
+  const handleLoadMore = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setCardsLoaded(cardsLoaded + 12); 
+      setLoading(false);
+    }, 1000); 
+  };
 
   return (
     <main className="container mx-auto flex mt-[70px] mb-[70px]">
@@ -14,33 +22,36 @@ export default function page() {
       <section className="w-full">
         <div className="flex mb-2 justify-between mx-auto xl:w-[1050px] sm:w-[auto] ml-2 flex-wrap ">
           <div className="flex gap-2">
-            <Select className="w-[150px]" defaultValue="Сортировать">
-              <option value="">test-1</option>
+            <Select
+              className="w-[150px]"
+              defaultValue="Сортировать"
+            >
+              <Select.Option value={12}>12</Select.Option>
+              <Select.Option value={20}>20</Select.Option>
             </Select>
             <Select className="w-[150px]" defaultValue="Все продукты">
-              <option value="">test-1</option>
+              <Select.Option value="">test-1</Select.Option>
             </Select>
           </div>
           <div className="flex gap-2">
-            {" "}
             <Select className="w-[150px]" defaultValue="Кард">
-              <option value="">test-1</option>
+              <Select.Option value="">test-1</Select.Option>
             </Select>
             <Select className="w-[150px]" defaultValue="Лист  ">
-              <option value="">test-1</option>
+              <Select.Option value="">test-1</Select.Option>
             </Select>
           </div>
         </div>
         <div className="flex flex-wrap justify-between ml-2 gap-2">
-          {arr.map((e) => (
-            <div key={e} className="relative">
-              <Card />
-            </div>
-          ))}
+          <Card count={cardsLoaded} /> 
         </div>
         <div className="w-full">
-          <button className="bg-white px-4 py-2 rounded-md xl:w-[1050px] sm:w-auto mt-2 ml-2">
-            Load more
+          <button
+            className="bg-white px-4 py-2 rounded-md xl:w-[1050px] sm:w-auto mt-2 ml-2"
+            onClick={handleLoadMore} 
+            disabled={loading} 
+          >
+            {loading ? "Loading..." : "Load more"}
           </button>
         </div>
       </section>
