@@ -20,7 +20,7 @@ export default function slider() {
   return (
     <div>
       {" "}
-      <div className="flex justify-center gap-5 flex-wrap">
+      <div className="flex justify-around flex-wrap container mx-auto">
         <div className="xl:max-w-[800px] xl:h-[500px] sm:max-w-[350px] sm:h-[200px] max-w-full h-auto">
           <Carousel arrows infinite={true} autoplay>
             {arr.map((e) => (
@@ -63,7 +63,7 @@ export default function slider() {
         </div>
       </div>
       <div className="bg-white w-full mb-[70px]">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-8 py-3">
           <h1 className="text-[24px] mb-5">Каталог</h1>
           <Carousel infinite={true} autoplay>
             {arr.map((e) => (
